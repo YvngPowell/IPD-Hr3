@@ -26,7 +26,7 @@ def move(my_history, their_history, my_score, their_score):
         if len(my_history) < position + 10:
             return 'b'
         else:
-            return random.choice('b','c')
+            return random.choice(['b','c'])
             
     else:
         return 'c'
