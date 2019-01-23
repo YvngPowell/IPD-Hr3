@@ -7,8 +7,8 @@
 ####
 
 team_name = 'Logan Corys Team' # Only 10 chars displayed.
-strategy_name = 'Collude until betrayed'
-strategy_description = 'My code colludes until the other player betrays'
+strategy_name = 'Collude until betrayed first 190 rounds. Betray 190th round and beyond.'
+strategy_description = 'My code colludes until the other player betrays for the first 190 rounds. Then it will betray the 190th round and beyond.'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -27,9 +27,9 @@ def move(my_history, their_history, my_score, their_score):
     # Decide whether to return 'c' or 'b'.
     if len(my_history) ==0:
         return 'c'
-    if 'b' in their_history:
+    if 'b' in their_history or len(their_history)>190: 
         return 'b'
-    else:
+    else: 
         return 'c' 
 
 def test_move(my_history, their_history, my_score, their_score, result):
