@@ -8,7 +8,7 @@
 
 team_name = 'Julian Fletchers Team' # Only 10 chars displayed.
 strategy_name = 'Betray after collude'
-strategy_description = 'If the last item in their history is \'c\' then collude unless it colluded the last round'
+strategy_description = 'If the last item in their history is \'c\' then collude, unless I betrayed the last round or havent colluded in the last two rounds'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -25,14 +25,18 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     if their_score == 0:
-        return 'c' 
+        return 'c'
     if their_history[-1] == 'c':
-        if my_history[-1] == 'b':
-            return 'c'  
-    else: 
+        if my_history[-1] == 'c':
+            if my_history[-2] != 'c':
+                return 'c'
+        else:
+            if my_history[-1] == 'b':
+                return 'b'
+    else:
         return 'b'
 
-    
+
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)
     from this module. Prints error if return value != result.
@@ -69,4 +73,12 @@ if __name__ == '__main__':
               # move('bbb', 'ccc', 0, 0) returns 'b'.
               my_score=0, 
               their_score=0,
-              result='b')             
+              result='b')            
+              
+'''              
+if their_score == 0:
+        return 'c' 
+    if their_history[-1] == 'c':
+        if my_score[-1] == 'b':
+            return 'c'  
+        return 'c' '''
