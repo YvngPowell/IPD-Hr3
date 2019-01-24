@@ -17,7 +17,7 @@ def move(my_history, their_history, my_score, their_score):
         return 'b'
     else:
         return 'c'
-    if len(my_history)==199:
+    if len(my_history)==125:
         return 'b'
     
     ''' Arguments accepted: my_history, their_history are strings.
