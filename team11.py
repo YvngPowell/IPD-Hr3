@@ -7,8 +7,8 @@
 ####
 
 team_name = 'Blake Swanson Team' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
+strategy_name = 'Colludes until betrayed'
+strategy_description = 'Colludes until betrayed'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -33,7 +33,7 @@ def move(my_history, their_history, my_score, their_score):
         for i in their_history:
             if i == 'b':
                 total += 1
-        if total >2:
+        if total >1:
             return 'b'
         else:
             return 'c'
