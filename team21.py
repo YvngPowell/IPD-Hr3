@@ -6,8 +6,8 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
+team_name = 'Emmanuel Sandoval team' # Only 10 chars displayed.
+strategy_name = 'Strategy'
 strategy_description = 'How does this strategy decide?'
     
 def move(my_history, their_history, my_score, their_score):
@@ -24,10 +24,22 @@ def move(my_history, their_history, my_score, their_score):
     # The most recent round is my_history[-1] and their_history[-1].
     
     # Analyze my_history and their_history and/or my_score and their_score.
-    # Decide whether to return 'c' or 'b'.
+    # Decide whether to return 'c' or 'b'. 
+         
     
-    return 'c'
-
+    if len(my_history)<13:
+        return 'c'
+    
+    elif len(my_history)< 11:
+        return 'c'
+    elif len(my_history)< 23:
+        return 'b'
+    if len(their_history[-3]) == 'c':
+        return 'c'
+    elif their_history[-3] == 'b':
+        return 'b'
+    else: 
+        return 'c'
     
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)
@@ -53,7 +65,7 @@ if __name__ == '__main__':
               my_score=0,
               their_score=0,
               result='b'):
-         print 'Test passed'
+         print ('Test passed')
      # Test 2: Continue betraying if they collude despite being betrayed.
     test_move(my_history='bbb',
               their_history='ccc', 
