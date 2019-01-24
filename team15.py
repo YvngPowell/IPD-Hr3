@@ -7,8 +7,8 @@
 ####
 
 team_name = "Dane Singers Team" # Only 10 chars displayed.
-strategy_name = 'Betray at 150'
-strategy_description = 'The strategy colludes until betrayed or round 150 is reached'
+strategy_name = 'Collude Until Betrayed'
+strategy_description = 'The strategy colludes until betrayed'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -25,7 +25,7 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
-    if 'b' in their_history or len(their_history)>150:
+    if 'b' in their_history:
         return 'b'
     else:
         return 'c'
