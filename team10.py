@@ -32,6 +32,10 @@ def move(my_history, their_history, my_score, their_score):
         return str(my_history[-1])
     if their_history[-1] == their_history[-2]:
         return str(my_history[-2])
+    if my_history[-1] and my_history[-2] == 'c':
+        return 'b'
+    if my_history[-1] and my_history[-2] == 'b':
+        return 'c'
 
 
     
