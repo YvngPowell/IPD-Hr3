@@ -7,11 +7,9 @@ import random
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'Peter Amendt\'s Team' # Only 10 chars displayed.
-strategy_name = 'Collude until Oppenent Betrays'
-strategy_description = '''First round Collude
-If opponent colluded last round then collude again
-If betrayed then betray always
+team_name = 'PeterAmendt\'sTeam' # Only 10 chars displayed.
+strategy_name = 'Collude then Copy Cat'
+strategy_description = '''First round Collude, then copies oppenents last move. Betrays during last possible round. 
 '''
     
 def move(my_history, their_history, my_score, their_score):
@@ -29,14 +27,16 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
-    
-    if len(their_history) == 0:
-            return 'c'
-    elif len(their_history) > 0:
-        if 'b' in their_history:
-            return 'b'
-        else:
-            return 'c'
+
+    if len(their_history) == 199:
+        return 'b'
+    if len(my_history) == 0:
+        return 'c'
+    elif their_history[-1] == 'c':
+        return 'c'
+    else:
+        return 'b'
+
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
