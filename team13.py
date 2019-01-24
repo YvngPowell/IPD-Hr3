@@ -8,7 +8,7 @@ import random
 
 team_name = 'Danny Montgomery Team' # Only 10 chars displayed.
 strategy_name = 'creating_maze_bianary'
-strategy_description = '''I used subtraction operation it tracks if they program could colude then I betray after coludes stop to reduce bulk fails.It does it 100 times.
+strategy_description = '''Instead of using subtraction operation: it tracks if they program could collude, then I betray after coludes stop to reduce bulk fails, I am figuring out tuples of their knowledge and added one loop that runs hundreds of times.
 '''
     
 def move(my_history, their_history, my_score, their_score):
@@ -22,13 +22,13 @@ def move(my_history, their_history, my_score, their_score):
         return 'c'
     
     if len(my_history)<8:
-        if int(their_score)< -1000:
+        if int(their_score)> -250:
             return 'c' # this prevents me from breaking my score on my first turns
         else:
             return 'b'    
         return 'c'
     if 7<len(my_history)<31:
-        if their_history[-2] == 'b' or my_score < -1000:
+        if their_history[-3] == 'b'and their_history[-2] == 'b'and their_history[-1] == 'b' or my_score < -1000:#the problm was i kept coluuding to often
             return 'b'
         else:
             return 'c'
@@ -44,7 +44,10 @@ def move(my_history, their_history, my_score, their_score):
         if random.random()<0.6: # 60% of the other rounds
             return 'b' 
         else:
-            return 'c'
+            while their_history[-6] == 'b' and their_history[-5] == 'b'and their_history[-4] == 'b' and their_history[-3] == 'b' and their_history[-2] == 'b' and their_history[-1] == 'b':# tuple that learns from others and copys them
+                return 'b'
+            else:
+                return 'c'
  
     
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
