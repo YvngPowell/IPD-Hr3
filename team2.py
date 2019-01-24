@@ -7,8 +7,8 @@
 ####
 
 team_name = 'Emmanuella Dziuk' # Only 10 chars displayed.
-strategy_name = 'Collude until betrayed, then betray.'
-strategy_description = 'I will start out colluding always. If the opponent betrays, I will switch to betrayal.'
+strategy_name = 'Collude until betrayed, then betray. Trust again after 10 Colludes'
+strategy_description = 'I will start out colluding always. If the opponent betrays, I will switch to betrayal. Switch back to Collude if last 10 plays are Collude'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -26,12 +26,10 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
-    if 'b' in their_history:
+    if 'b' in their_history[-10:]:
         return 'b'
     else:
         return 'c'
-
-
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
