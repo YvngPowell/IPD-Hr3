@@ -8,7 +8,7 @@
 
 
 team_name = 'Team_Evan_You' # Only 10 chars displayed.
-strategy_name = 'Culude until they betray'
+strategy_name = 'Culude only'
 strategy_description = 'Uses multiple types of conditions to determine to colude or to betray'
     
 def move(my_history, their_history, my_score, their_score):
@@ -18,14 +18,8 @@ def move(my_history, their_history, my_score, their_score):
     Make my move.
     Returns 'c' or 'b'. 
     '''
-    
-    if(my_history == ['']):
-        return 'c'
-        
-    if(their_history[:-1] == ['c']):
-        return 'b'
-    else:
-        return 'c' 
+
+    return 'c'
 
 
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
