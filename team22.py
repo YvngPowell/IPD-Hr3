@@ -15,12 +15,14 @@ strategy_description = 'The way this strategy works is that you keep concluding 
 
     
 def move(my_history, their_history, my_score, their_score):
+
     if len(my_history)<20:
         return 'b'
     elif len(my_history)<18:
         return  'c'
     elif their_history[19]=='b':
         return 'b'
+
     else:
         return'c'
         
