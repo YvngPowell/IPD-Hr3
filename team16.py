@@ -32,19 +32,19 @@ def move(my_history, their_history, my_score, their_score):
     # Decide whether to return 'c' or 'b'.
     for ans in their_history:
         n+=1
-    for ans in their_history:
+    for ans in their_history[-20:]:
         if ans=='b':
             b+=1
-    for ans in their_history:
+    for ans in their_history[-20:]:
         if ans=='c':
             c+=1
             
-    if (b+0.1)/(n+0.1)>0.623456755 and n>5:
+    if (b+0.1)/(n+0.1)>0.70 and n>5:
         return 'b'
-    elif (c+0.1)/(n+0.1)>0.73 and n>20:
+    elif (c+0.1)/(n+0.1)>0.70 and n>20:
         return 'b'
     else:
-        if random.random()<0.25:
+        if random.random()<0.35:
             return 'b'
         else:
             return 'c'
